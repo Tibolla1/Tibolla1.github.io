@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --creme: #f6f1e2;
+  --creme-cartao: #fdfaf1;
+  --solo: #2c2013;
+  --solo-suave: #6b5d47;
+  --verde: #204b34;
+  --verde-escuro: #163a27;
+  --ouro: #c69a3d;
+  --borda: #e2d6ae;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--creme);
+  color: var(--solo);
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  margin: 0;
+  color: var(--verde-escuro);
+}
+
+.pagina {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--borda);
+  background: var(--creme-cartao);
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--verde-escuro);
+  text-decoration: none;
+}
+
+.marca__grao {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50% 50% 50% 0;
+  background: linear-gradient(135deg, var(--ouro), var(--verde));
+  transform: rotate(45deg);
+  display: inline-block;
+}
+
+.faixa {
+  padding: 3rem 1.5rem 2.4rem;
+  max-width: 46rem;
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(90deg, var(--verde), var(--ouro)) 1;
+}
+
+.faixa h1 {
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+  line-height: 1.15;
+  max-width: 34rem;
+}
+
+.faixa p {
+  margin-top: 0.9rem;
+  color: var(--solo-suave);
+  max-width: 32rem;
+}
+
+.abas {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0 1.5rem;
+}
+
+.aba {
+  border: 1px solid var(--borda);
+  border-bottom: none;
+  background: var(--creme);
+  color: var(--solo-suave);
+  padding: 0.65rem 1.15rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.aba--ativa {
+  background: var(--creme-cartao);
+  color: var(--verde-escuro);
+  font-weight: 600;
+}
+
+.conteudo {
+  flex: 1;
+  padding: 1.75rem 1.5rem 3rem;
+  max-width: 34rem;
+  border-top: 1px solid var(--borda);
+  margin-top: -1px;
+  background: var(--creme-cartao);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formulario__linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.formulario label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--solo-suave);
+}
+
+.formulario input,
+.formulario select {
+  font: inherit;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--borda);
+  border-radius: 0.4rem;
+  background: #fff;
+  color: var(--solo);
+}
+
+.formulario input:focus,
+.formulario select:focus {
+  outline: 2px solid var(--verde);
+  outline-offset: 1px;
+}
+
+.botao {
+  align-self: flex-start;
+  background: var(--verde);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: 0.5rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.botao--secundario {
+  background: transparent;
+  color: var(--verde-escuro);
+  border: 1px solid var(--verde);
+  margin-top: 1rem;
+}
+
+.aviso-carteira {
+  color: var(--solo-suave);
+  border: 1px dashed var(--borda);
+  padding: 1rem 1.2rem;
+  border-radius: 0.5rem;
+}
+
+.mensagem-erro {
+  color: #8c2f2f;
+  font-size: 0.9rem;
+}
+
+.passaporte {
+  border: 1px solid var(--borda);
+  background: #fff;
+  border-radius: 0.7rem;
+  padding: 1.6rem 1.6rem 1.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.passaporte::before {
+  content: '';
+  position: absolute;
+  inset: 0.4rem;
+  border: 1px dashed var(--borda);
+  border-radius: 0.4rem;
+  pointer-events: none;
+}
+
+.passaporte__selo {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--verde-escuro);
+  background: #eef3ea;
+  border: 1px solid #cfe0cf;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.9rem;
+}
+
+.passaporte h3 {
+  margin-bottom: 1rem;
+}
+
+.passaporte__campo {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0.5rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f1ead2;
+  font-size: 0.95rem;
+}
+
+.passaporte__campo span {
+  color: var(--solo-suave);
+  font-size: 0.85rem;
+}
+
+.passaporte__qr {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #f1ead2;
+}
+
+.passaporte__mint span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--solo-suave);
+  margin-bottom: 0.3rem;
+}
+
+.passaporte__mint code {
+  font-size: 0.8rem;
+  word-break: break-all;
+}
+
+.link-explorer {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--verde);
+}
+
+.rodape {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--solo-suave);
+  padding: 1.2rem;
+}
+
+@media (max-width: 30rem) {
+  .formulario__linha {
+    grid-template-columns: 1fr;
+  }
+  .passaporte__qr {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
